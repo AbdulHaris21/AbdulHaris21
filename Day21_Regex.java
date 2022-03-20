@@ -1,20 +1,20 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.Scanner;
-import java.util.regex.*;
 
-public class Solution
-{
+class Solution{
+
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
-        int testCases = Integer.parseInt(in.nextLine());
-        while(testCases>0){
-            String pattern = in.nextLine();
-            testCases--;
-            try{
-                Pattern.compile(pattern);
-                System.out.println("Valid");
-            }catch(PatternSyntaxException ex){
-                System.out.println("Invalid");
-            }
+        while(in.hasNext()){
+            String IP = in.next();
+            System.out.println(IP.matches(new MyRegex().pattern));
         }
+
     }
+}
+
+//Write your code here
+class MyRegex{
+    public String pattern = "((([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\\.){3}([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\\b)";
 }
